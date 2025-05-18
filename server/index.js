@@ -1,7 +1,9 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
+import express from "express";
 
-const httpServer = createServer();
+const app = express();
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: "*",
@@ -29,6 +31,10 @@ io.on("connection", (socket) => {
       }
     });
   });
+});
+
+app.get("/", (req, res) => {
+  res.json({ message: "server is running" });
 });
 
 httpServer.listen(3000, "0.0.0.0", () => {
