@@ -5,9 +5,11 @@ import express from "express";
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
+  path: "/socket.io/",
   cors: {
-    origin: "*",
+    origin: ["http://13.53.197.160"],
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 let rooms = [];
