@@ -47,7 +47,7 @@ const App = () => {
     setMessage("");
   };
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center vh-100 position-relative">
+    <div className="d-flex flex-column justify-content-center align-items-center vh-100 w-100 position-fixed top-0">
       <div className="col-md-6 col-12 position-sticky bottom-0 px-3">
         <h4 className="text-success">Room id: {room}</h4>
         <div className="input-group">
@@ -91,7 +91,7 @@ const App = () => {
           </select>
         </div>
         <div className="chat-box bg-light rounded p-3">
-          <div className="d-flex flex-column h-100 w-100 justify-content-end">
+          <div className="d-flex flex-column h-100 w-100 overflow-auto justify-content-end">
             {chat.map((chat, index) => (
               <div key={index} className="d-flex flex-column">
                 <p
